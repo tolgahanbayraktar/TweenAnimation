@@ -1,5 +1,6 @@
 package com.tbdev.tweenanimation;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,6 +24,21 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         setContentView(R.layout.activity_main);
 
         mImageView = (ImageView) findViewById(R.id.volleyball);
+    }
+
+    public void startFrameAnimation(View view) {
+        ImageView dummyFrame = (ImageView) findViewById(R.id.imageFrame);
+        dummyFrame.setBackgroundResource(R.drawable.frame);
+        Toast.makeText(this, "Hiii", Toast.LENGTH_SHORT).show();
+
+
+        AnimationDrawable frameAnimation = (AnimationDrawable) dummyFrame.getBackground();
+
+        if (frameAnimation.isRunning()) {
+            frameAnimation.stop();
+        } else {
+            frameAnimation.start();
+        }
     }
 
     public void scaleAnimation(View view) {
